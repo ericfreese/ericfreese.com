@@ -2,7 +2,11 @@
 
 %html
   %head
-    %title Eric Freese
+    %title
+      - if content_for?(:title)
+        = yield :title
+        |
+      Eric Freese
 
     = stylesheet_link_tag 'application', media: 'all'
     = yield :styles if content_for?(:styles)

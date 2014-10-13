@@ -1,3 +1,6 @@
+- content_for :title do
+  = @content.title
+
 - begin
   = render :partial => "#{@content.type.pluralize.underscore}/#{@content.slug.underscore}"
 - rescue ActionView::MissingTemplate

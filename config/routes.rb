@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   get 'logout', :to => 'sessions#destroy', :as => 'logout'
   resources :sessions, :only => [ :create ]
 
+  # Old urls
+  get '/2014/02/26/creating-a-theme-for-atom-githubs-new-editor.html', :to => redirect('/creating-a-theme-for-atom-github-s-new-editor')
+  get '/2014/02/18/readable-w3c-archives.html', :to => redirect('/readable-w3c-archives')
+  get '/2014/02/18/gulp-node-modules-gulp-util-node-modules-multipipe-node-modules-duplexer2-indexjs54.html', :to => redirect('/gulp-node-modules-gulp-util-node-modules-multipipe-node-modules-duplexer2-indexjs54')
+  get '/card_experiments', :to => redirect('/card-experiments')
+  
   resources :contents, :path => '', :except => [ :index, :new, :create ]
 
   root 'contents#index'
