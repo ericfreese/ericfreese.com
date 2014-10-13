@@ -1,0 +1,4 @@
+@mixin ar-new-stacking-context($position: relative, $z-index: 1) {
+  position: $position;
+  z-index: $z-index
+}

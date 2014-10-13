@@ -1,0 +1,17 @@
+common: &common
+  adapter: postgresql
+  pool: 10
+
+development:
+  <<: *common
+  database: ericfreese_dev
+  host: localhost
+
+test:
+  <<: *common
+  database: ericfreese_test
+  host: localhost
+
+production:
+  <<: *common
+  database: ericfreese_production

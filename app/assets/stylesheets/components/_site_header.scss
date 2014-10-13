@@ -1,0 +1,32 @@
+.site-header {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  margin-top: 2rem;
+
+  @include ar-breakpoint-query(medium) {
+    margin-top: 4rem;
+  }
+}
+
+.site-header__brand,
+.site-header__nav {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+.site-header__brand {
+  @extend .t-loud;
+  font-size: 2em;
+  color: $color-dark;
+}
+
+.site-header__nav {
+  @extend .t-loud;
+  text-align: right;
+
+  a {
+    color: $color-dark;
+  }
+}

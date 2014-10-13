@@ -1,0 +1,10 @@
+- posts.each do |post|
+  .article-preview
+    %h2.article-preview__title
+      = link_to post.title, content_path(post)
+    %p.article-preview__body
+      = truncate(strip_tags(render(:partial => "posts/#{post.slug.underscore}")), length: 140) rescue nil
+    .article-preview__meta
+      .article-preview__created
+        %time{ :datetime => post.created_at }
+          = post.created_at.strftime('%B %-d, %Y')

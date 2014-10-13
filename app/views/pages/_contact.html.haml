@@ -1,0 +1,13 @@
+:markdown
+  - [Email](mailto:ericdfreese@gmail.com)
+  - [GitHub](https://github.com/ericfreese)
+
+= form_for @contact, url: contacts_path, html: { class: 'snazzy-form' } do |f|
+  .snazzy-form__field
+    = f.label :from
+    = f.text_field :from, :required => true
+  .snazzy-form__field
+    = f.label :message
+    = f.text_area :message, :required => true
+  .snazzy-form__field.snazzy-form__actions
+    = button_tag 'Submit', :class => 'button'

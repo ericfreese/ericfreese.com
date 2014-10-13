@@ -1,0 +1,22 @@
+.l-commentable {
+  @extend %grid-row;
+}
+
+.l-commentable__subject {
+  @include ar-grid-cols(12);
+  // @include ar-grid-cols(8, 2, $from: large);
+}
+
+.l-commentable__comments {
+  margin-top: 40px;
+  @include ar-grid-cols(12);
+  // @include ar-grid-cols(8, 2, $from: large);
+
+  // @include ar-breakpoint-query(large) {
+  //   margin-top: 0;
+  // }
+}
+
+.l-commentable__comments__prompt {
+  margin-bottom: 20px;
+}

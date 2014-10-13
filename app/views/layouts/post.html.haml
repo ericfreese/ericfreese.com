@@ -1,0 +1,15 @@
+- content_for :content do
+  .article
+    .article__header
+      %h1.article__title
+        = @content.title
+      .article__meta
+        .article__created
+          %time{ :datetime => @content.created_at }
+            = @content.created_at.strftime('%B %-d, %Y')
+        - if session[:loggedin].present?
+          %div= link_to 'Edit', edit_content_path(@content)
+    .article__body
+      = yield
+
+= render :template => 'layouts/application'

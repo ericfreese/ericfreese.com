@@ -1,0 +1,19 @@
+.banner {
+  @extend .responsive-align;
+  @extend .t-readable;
+}
+
+.banner__intro {
+  font-size: 3rem;
+}
+
+
+.banner__support {
+  font-size: 2.2rem;
+}
+
+@include ar-breakpoint-query(medium) {
+  .banner__intro {
+    font-size: 8rem;
+  }
+}

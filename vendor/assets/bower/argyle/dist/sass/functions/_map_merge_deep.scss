@@ -1,0 +1,28 @@
+// Found at https://github.com/Team-Sass/Sassy-Maps/pull/10
+@function ar-map-merge-deep($map-old, $map-new, $overwrite: true){
+  // Iterate through each value of the new map
+  @each $key, $new-value in $map-new {
+    // Check if that value already exists on the old map
+    @if map-has-key($map-old, $key) {
+      
+      $old-value: map-get($map-old, $key);
+      $new-value-is-map: type-of($new-value) == map;
+      $old-value-is-map: type-of($old-value) == map;
+      
+      // If both are maps, recurse regardless of $overwrite
+      @if $old-value-is-map and $new-value-is-map {
+        $merged-value: map-merge-deep($old-value, $new-value);
+        $map-old: map-set($map-old, $key, $merged-value);
+      } @else {
+        // Otherwise check $overwrite
+        @if $overwrite{
+          $map-old: map-merge($map-old, ($key: $new-value));
+        }
+      }
+    // There is no existing key so add
+    } @else {
+      $map-old: map-merge($map-old, ($key: $new-value));  
+    }
+  }
+  @return $map-old
+}

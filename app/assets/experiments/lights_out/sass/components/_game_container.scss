@@ -1,0 +1,14 @@
+.game-container {
+  text-align: center;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  user-select: none;
+
+  .game-container_title {
+    padding-bottom: 1em;
+  }
+
+  .game-container_options {
+    padding-top: 1em;
+  }
+}

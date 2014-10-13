@@ -1,0 +1,20 @@
+:markdown
+  A simple game based on Lights Out. Make all of the tiles 5.
+
+.game-container
+  .lights-container
+    .lights
+  .game-container_options
+    %p
+      %span.game-container_level
+      &mdash;
+      %span.game-container_move-counter
+    %button.js-previous &lt;
+    %button.js-restart Restart
+    %button.js-next &gt;
+
+:markdown
+  Source is on [Github](https://github.com/ericfreese/ericfreese.github.io).
+
+= stylesheet_link_tag 'lights_out/style.css'
+= javascript_include_tag 'lights_out/lights_out.js'

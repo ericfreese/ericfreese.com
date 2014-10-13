@@ -1,0 +1,32 @@
+.success-notification {
+  @extend .t-readable;
+  text-align: center;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.success-notification__check {
+  position: relative;
+  background-color: $color-green;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+  margin-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    top: 40%;
+    left: 45%;
+    margin-left: -25%;
+    margin-top: -10%;
+    transform: rotate(-45deg);
+    border-left: 10px solid #fff;
+    border-bottom: 10px solid #fff;
+  }
+}

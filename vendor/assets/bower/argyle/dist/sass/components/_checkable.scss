@@ -1,0 +1,29 @@
+@import "../context";
+
+@mixin ar-checkable {
+  $checkable: ar-get-context("checkable");
+
+  display: if(
+    map-has-key($checkable, 'display'),
+    map-get($checkable, 'display'),
+    block
+  );
+
+  white-space: if(
+    map-has-key($checkable, 'white-space'),
+    map-get($checkable, 'white-space'),
+    nowrap
+  );
+
+  @if map-has-key($checkable, 'line-height') {
+    line-height: map-get($checkable, 'line-height');
+  }
+}
+
+@mixin ar-checkable__label {
+  $checkable: ar-get-context("checkable", ());
+
+  @if map-has-key($checkable, 'extra-spacing') {
+    margin-left: map-get($checkable, 'extra-spacing');
+  }
+}

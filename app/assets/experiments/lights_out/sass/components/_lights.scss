@@ -1,0 +1,58 @@
+.lights-container {
+  position: relative;
+  font-weight: 700;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.lights {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.light {
+  display: block;
+  position: relative;
+  float: left;
+  border-radius: 43%;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  
+  body:not(.touch-enabled) & {
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      opacity: 0;
+    }
+
+    &:hover:before {
+      opacity: 0.2;
+    }
+  }
+}
+
+.light_text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  line-height: 10px;
+  margin-top: -5px;
+  text-align: center;
+  color: #fff;
+  opacity: 0.3;
+}

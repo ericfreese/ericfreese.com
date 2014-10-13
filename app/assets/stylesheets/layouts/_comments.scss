@@ -1,0 +1,8 @@
+.l-comments {
+}
+
+.l-comments__item {
+  & + & {
+    margin-top: 20px;
+  }
+}

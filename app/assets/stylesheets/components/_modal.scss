@@ -1,0 +1,48 @@
+.modal {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  overflow: auto;
+  opacity: 0;
+  transition: all $modal-transition-duration linear;
+  background: $modal-overlay-color;
+  background: rgba($modal-overlay-color, $modal-overlay-opacity);
+
+  &.modal--shown {
+    z-index: 2000;
+    opacity: 1;
+  }
+
+  &:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    cursor: pointer;
+  }
+}
+
+.modal__content {
+  margin: 40px auto;
+  max-width: 860px;
+  width: 90%;
+  height: 90%;
+
+  transform: translateY(-100%);
+  transition: transform $modal-transition-duration ease-out;
+
+  .modal--shown & {
+    transform: translateY(0);
+  }
+}
+
+.body--modal {
+  overflow: hidden;
+}

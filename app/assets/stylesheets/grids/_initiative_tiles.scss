@@ -1,0 +1,8 @@
+.g-initiative-tiles {
+  @extend %grid-row;
+}
+
+.g-initiative-tiles__item {
+  @include ar-grid-cols(12, $vspace: 20px);
+  @include ar-grid-cols(6, $from: medium, $vspace: 20px);
+}

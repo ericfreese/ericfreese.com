@@ -1,0 +1,4 @@
+.container {
+  @include ar-container-from-context;
+  @include ar-clearfix;
+}

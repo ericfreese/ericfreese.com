@@ -1,0 +1,7 @@
+.responsive-align {
+  text-align: left;
+
+  @include ar-breakpoint-query(medium) {
+    text-align: center;
+  }
+}

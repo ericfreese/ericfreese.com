@@ -1,0 +1,39 @@
+html {
+  font-size: 8px;
+  min-height: 100%;
+  position: relative;
+
+  @include ar-breakpoint-query(medium) {
+    font-size: 10px;
+  }
+}
+
+body {
+  font-size: $font-size;
+  font-family: "Open Sans", sans-serif;
+  background-color: $body-background-color;
+  line-height: 1.4;
+  color: $text-color;
+}
+
+main {
+  padding-bottom: 2rem;
+
+  @include ar-breakpoint-query(medium) {
+    padding-bottom: 4rem;
+  }
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover, &:focus, &:active {
+    text-decoration: underline;
+    color: darken($link-color, 5%);
+  }
+}
+
+time[title] {
+  cursor: help;
+}

@@ -1,0 +1,9 @@
+%section.page-section
+  .page-section__header
+    %h1.t-h1 Log in
+  = form_for :login, url: sessions_path, html: { class: 'snazzy-form' } do |f|
+    .snazzy-form__field
+      = f.label :password
+      = f.password_field :password, :required => true
+    .snazzy-form__field.snazzy-form__actions
+      = button_tag 'Log in', :class => 'button button--primary'

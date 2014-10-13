@@ -1,0 +1,8 @@
+.section-header {
+  @extend .responsive-align;
+  margin-bottom: 4rem;
+
+  @include ar-breakpoint-query(medium) {
+    margin-bottom: 6rem;
+  }
+}

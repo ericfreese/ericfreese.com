@@ -1,0 +1,9 @@
+@import "unstyled_list";
+
+@mixin ar-inline-list($display: inline-block) {
+  @include ar-unstyled-list;
+
+  li {
+    display: $display;
+  }
+}

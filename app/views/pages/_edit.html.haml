@@ -1,0 +1,12 @@
+%section.page-section
+  .page-section__header
+    %h1.t-h1 Edit Page
+  = form_for page, url: content_path(page), :as => :content, html: { class: 'snazzy-form' } do |f|
+    .snazzy-form__field
+      = f.label :title
+      = f.text_field :title, :required => true
+    .snazzy-form__field
+      = f.label :slug
+      = f.text_field :slug, :required => true
+    .snazzy-form__field.snazzy-form__actions
+      = button_tag 'Save', :class => 'button button--primary'

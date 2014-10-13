@@ -1,0 +1,15 @@
+.site-footer {
+  display: none; // Shown by js when ready
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-blue;
+  color: #fff;
+}
+
+.site-footer__content {
+  text-align: center;
+  padding-top: $site-footer-padding;
+  padding-bottom: $site-footer-padding;
+}

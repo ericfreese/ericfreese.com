@@ -1,0 +1,27 @@
+.flash {
+  text-align: left;
+  padding: 12px 0;
+  a {
+    font-weight: bold;
+  }
+}
+
+.flash--notice {
+
+}
+
+.flash--alert {
+  background-color: darken($color-red, 10%);
+  
+  &, a, a:hover, a:focus, a:active {
+    color: #fff;
+  }
+}
+
+.flash__dismiss {
+  float: right;
+
+  a, a:hover, a:focus, a:active {
+    text-decoration: none;
+  }
+}

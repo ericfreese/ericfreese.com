@@ -1,0 +1,8 @@
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  @extend .t-readable;
+  border: 1px solid $color-gray;
+  resize: vertical;
+}

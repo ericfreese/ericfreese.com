@@ -1,0 +1,11 @@
+@function ar-round-to-multiple($num, $multiple-of) {
+  @return if ($multiple-of, round($num / $multiple-of) * $multiple-of, round($num));
+}
+
+@function ar-floor-to-multiple($num, $multiple-of) {
+  @return if ($multiple-of, floor($num / $multiple-of) * $multiple-of, floor($num));
+}
+
+@function ar-ceil-to-multiple($num, $multiple-of) {
+  @return if ($multiple-of, ceil($num / $multiple-of) * $multiple-of, ceil($num));
+}

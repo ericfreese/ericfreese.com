@@ -1,0 +1,8 @@
+@import "fill_closest_positioned_ancestor";
+
+@mixin ar-styled-form-input {
+  @include ar-fill-closest-positioned-ancestor--tl;
+  opacity: 0;
+  border: none;
+  margin: 0;
+}

@@ -1,0 +1,35 @@
+@import "../helpers/new_stacking_context";
+@import "../helpers/styled_form_input";
+@import "../helpers/total_height";
+
+@mixin ar-styled-select($display: inline-block) {
+  @include ar-new-stacking-context;
+  display: $display;
+}
+
+@mixin ar-styled-select__select {
+  @include ar-styled-form-input;
+}
+
+@mixin ar-styled-select__dropdown($width: 20px, $height: 10px, $font-size: 0.5em) {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -($height / 2);
+  line-height: $height;
+  width: $width;
+  text-align: center;
+  font-size: $font-size;
+}
+
+@mixin ar-styled-select__dropdown--pseudo($width: 30px, $height: 10px, $pseudo: after, $content: '▼') {
+  padding-right: $width;
+
+  &:#{$pseudo} {
+    content: $content;
+    position: relative;
+    z-index: -1;
+    @include ar-styled-select__dropdown($width, $height);
+  }
+}

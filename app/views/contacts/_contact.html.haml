@@ -1,0 +1,5 @@
+.article-preview
+  %h2.article-preview__title
+    = link_to contact.from, contact
+  %p.article-preview__body
+    = truncate(contact.message, length: 140)

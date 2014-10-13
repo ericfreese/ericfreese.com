@@ -1,0 +1,45 @@
+!!!
+
+%html
+  %head
+    %title Eric Freese
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = yield :styles if content_for?(:styles)
+
+    = javascript_include_tag 'application'
+    = yield :scripts if content_for?(:scripts)
+
+    = csrf_meta_tags
+    %meta{ :name => 'viewport', :content => 'initial-scale=1' }
+  %body.site-footer__container
+    .container
+      %header.site-header
+        = link_to root_path, :class => 'site-header__brand' do
+          Eric
+          %br
+          Freese
+        .site-header__nav
+          %ul
+            %li= link_to 'About', content_path('about')
+            %li= link_to 'Resume', content_path('resume')
+            %li= link_to 'Contact', new_contact_path
+            - if session[:loggedin].present?
+              %li= link_to 'Log Out', logout_path
+
+    %main
+      .container= content_for(:content) || yield
+
+    - if @hide_footer.blank? && cookies[:contacted].blank?
+      %footer.site-footer
+        .container
+          .site-footer__content.hire-me
+            - i = rand(3)
+            - case i
+              - when 0
+                I can build you an awesome front end.
+              - when 1
+                Like what you see?
+              - when 2
+                Need someone to clean up your CSS?
+            = link_to 'Hire me', new_contact_path(:s => i), :class => 'hire-me__action'

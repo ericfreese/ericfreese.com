@@ -1,0 +1,5 @@
+.article-preview
+  %h2.article-preview__title
+    = link_to experiment.title, content_path(experiment)
+  %p.article-preview__body
+    = preview_content(experiment)

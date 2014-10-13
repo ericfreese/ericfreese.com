@@ -1,0 +1,5 @@
+- begin
+  = render :partial => "#{@content.type.pluralize.underscore}/#{@content.slug.underscore}"
+- rescue ActionView::MissingTemplate
+  No partial found for:
+  = "#{@content.type.pluralize.underscore}/#{@content.slug.underscore}"

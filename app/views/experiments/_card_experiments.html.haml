@@ -1,0 +1,24 @@
+:markdown
+  An experiment in HTML/CSS/JS solitaire. Play Klondike or Spider.
+
+%div{ style: 'margin-top: 1em;' }
+  .aspect-ratio
+    %canvas{ :width => 6, :height => 5 }
+    #card-experiments
+      .options
+        %form.load-game
+          %label
+            Load a new game:
+            %input{ :type => "text", :name => "game", :list => "game_list", :pattern => "[a-z\-]+", :value => "spider", :title => "Alphanumeric characters and dashes only please!" }
+          %datalist#game_list
+            %option{ :value => "klondike" }
+            %option{ :value => "spider" }
+          %button{ :type => "submit" } New Game
+        %form.full-screen
+          %button{ :type => "submit" } Full Screen
+
+:markdown
+  Source is on [Github](https://github.com/ericfreese/ericfreese.github.io).
+
+= stylesheet_link_tag 'card_experiments/style.css'
+= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js', :data => { :main => '/assets/card_experiments/main' }, :async => true

@@ -1,0 +1,47 @@
+.snazzy-form {
+  @include ar-with-context(("total-height": $input-height-ctx )) {
+    input, textarea {
+      display: block;
+      width: 100%;
+      margin: 0;
+      @extend .t-readable;
+      @include ar-total-height-from-context;
+      border: 1px solid $color-lightgray;
+      border-radius: $input-border-radius;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+    }
+  }
+
+  label {
+    display: block;
+    @extend .t-h4;
+    margin-bottom: 0.8rem;
+
+    &[for] {
+      cursor: pointer;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    line-height: 1.4;
+  }
+
+  ::placeholder {
+    color: lighten($color-lightgray, 7%);
+  }
+}
+
+.snazzy-form__field {
+  &:nth-child(n+2) {
+    margin-top: 2rem;
+  }
+}
+
+.snazzy-form__actions {
+  text-align: right;
+}
+

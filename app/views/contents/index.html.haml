@@ -1,0 +1,15 @@
+%section.page-section
+  .page-section__header
+    %h1.t-h1 Recent Writings
+  = render @posts
+  - if Post.count > @posts.length
+    .article-preview__view-all
+      = link_to 'More writings »', posts_path
+
+%section.page-section
+  .page-section__header
+    %h1.t-h1 Recent Experiments
+  = render @experiments
+  - if Experiment.count > @experiments.length
+    .article-preview__view-all
+      = link_to 'More experiments »', experiments_path

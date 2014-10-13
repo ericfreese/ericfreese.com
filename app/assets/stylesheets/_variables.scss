@@ -1,0 +1,105 @@
+
+/* Argyle Contexts */
+
+$breakpoints: (
+  "small":  480px,
+  "medium": 768px,
+  "large":  992px,
+  "xlarge": 1200px
+);
+
+$containers: (
+  "default": ( "margin": 20px ),
+  "small":   ( "width":  440px ),
+  "medium":  ( "width":  740px ),
+  // "large":   ( "width":  970px ),
+  // "xlarge":  ( "width":  1170px )
+);
+
+$grid: (
+  "columns":      12,
+  "gutter-width": 30px,
+  "float":        left
+);
+
+// Set up initial context
+$ar-context: ar-push-context((
+  "breakpoints": $breakpoints,
+  "containers":  $containers,
+  "grid":        $grid
+));
+
+/* Colors */
+
+$color-offwhite:  #f4f4f4;
+$color-dark:      #333333;
+$color-gray:      lighten($color-dark, 35%);
+$color-lightgray: lighten($color-gray, 25%);
+
+$color-blue:   #0e73bc;
+$color-red:    #e0202b;
+$color-orange: #fdb219;
+$color-green:  #03C56D;
+
+/* Base */
+
+$body-background-color: #fff;
+$link-color:            $color-blue;
+$text-color:            $color-dark;
+
+$font-size: 1.6rem;
+
+$font-family-sans:  'Open Sans', Helvetica, Arial, sans-serif;
+$font-family-serif: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
+$font-family-loud:  'Oswald', sans-serif;
+$font-family-code:  'Droid Sans Mono', monospace;
+
+/* Forms */
+
+$input-border-width: 1px;
+$input-border-radius: 4px;
+$input-height-ctx: (
+  "height":      50px,
+  "line-height": 30px,
+  "border-height": 2 * $input-border-width
+);
+$input-small-height-ctx: (
+  "height":      40px,
+  "line-height": 30px,
+  "border-height": 2 * $input-border-width
+);
+
+/* Buttons */
+
+$button-border-width: 1px;
+
+/* Navbar */
+
+$navbar-height:           110px;
+$navbar-brand-height:     80px;
+$navbar-background-color: $color-offwhite;
+$navbar-link-color:       $color-dark;
+
+/* Brand Stripe */
+
+$brand-stripe-height: 3px;
+$brand-stripe-colors: (
+  darken($color-blue, 10%), $color-blue, lighten($color-blue, 10%),
+  darken($color-red, 10%), $color-red, lighten($color-red, 10%),
+  darken($color-orange, 10%), $color-orange, lighten($color-orange, 10%)
+);
+
+/* Modal */
+
+$modal-overlay-color:       #333;
+$modal-transition-duration: 0.4s;
+$modal-overlay-opacity:     0.7;
+
+/* Site Footer */
+
+$site-footer-padding: 16px;
+
+/* Hire Me */
+
+$hire-me-line-height: 18px;
+$hire-me-spacing: 16px;

@@ -1,0 +1,9 @@
+%section.page-section
+  .page-section__header
+    %h1.t-h1 New Page
+  = form_for @page, url: pages_path, html: { class: 'snazzy-form' } do |f|
+    .snazzy-form__field
+      = f.label :title
+      = f.text_field :title, :required => true
+    .snazzy-form__field.snazzy-form__actions
+      = button_tag 'Submit', :class => 'button button--primary'

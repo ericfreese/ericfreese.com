@@ -1,0 +1,9 @@
+- content_for :content do
+  .article
+    .article__header
+      %h1.article__title
+        = @contact.from
+    .article__body
+      = simple_format(@contact.message)
+
+= render :template => 'layouts/application'

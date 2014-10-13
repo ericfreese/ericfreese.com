@@ -1,0 +1,17 @@
+@import "trbl";
+
+@mixin ar-fill-closest-positioned-ancestor() {
+  @include ar-fill-closest-positioned-ancestor--trbl;
+}
+
+@mixin ar-fill-closest-positioned-ancestor--trbl() {
+  @include ar-atrbl(0);
+}
+
+@mixin ar-fill-closest-positioned-ancestor--tl() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

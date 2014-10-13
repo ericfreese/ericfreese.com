@@ -1,0 +1,33 @@
+@import "../helpers/new_stacking_context";
+@import "../helpers/styled_form_input";
+
+@mixin ar-styled-checkbox($display: inline-block, $input: "[type="checkbox"], [type="radio"]") {
+  @include ar-new-stacking-context;
+  display: $display;
+
+  @if $input {
+    #{$input} {
+      @include ar-styled-checkbox__input;
+    }
+  }
+}
+
+@mixin ar-styled-checkbox__input {
+  @include ar-styled-form-input;
+}
+
+@mixin ar-styled-checkbox__checkmark() {
+  z-index: -1;
+}
+
+@mixin ar-styled-checkbox__checkmark--checked {
+  @include ar-styled-checkbox__checkmark--pseudo(checked) {
+    @content;
+  }
+}
+
+@mixin ar-styled-checkbox__checkmark--pseudo($pseudo) {
+  :#{$pseudo} + & {
+    @content;
+  }
+}

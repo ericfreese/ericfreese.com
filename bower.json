@@ -1,0 +1,14 @@
+{
+  "name": "ericfreese.com",
+  "version": "0.0.0",
+  "authors": [
+    "Eric Freese <ericdfreese@gmail.com>"
+  ],
+  "private": true,
+  "ignore": [
+    "**/*"
+  ],
+  "devDependencies": {
+    "argyle": "git://github.com/ericfreese/argyle.git#master"
+  }
+}

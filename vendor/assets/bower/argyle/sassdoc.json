@@ -1,0 +1,9 @@
+{
+  "package": "package.json",
+  "groups": {
+    "undefined": "Ungrouped",
+    "button": "Button",
+    "container": "Container",
+    "context": "Context"
+  }
+}

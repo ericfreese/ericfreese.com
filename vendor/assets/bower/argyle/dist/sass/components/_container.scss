@@ -1,0 +1,75 @@
+@import "../context";
+@import "../helpers/breakpoints";
+
+/**
+ *
+ * Creates a horizontally centered container.
+ *
+ * @group container
+ *
+ * @param {Map} $container - Map of container options
+ *
+ * @example scss
+ *   @include ar-container(( "margin": 20px ));
+ *   @include ar-container(( "width": 800px ));
+ *   @include ar-container(( "width": 90% ));
+ */
+
+@mixin ar-container($container) {
+  @if map-has-key($container, "margin") {
+    width: auto;
+    margin-left: map-get($container, "margin");
+    margin-right: map-get($container, "margin");
+  } @elseif map-has-key($container, "width") {
+    width: map-get($container, "width");
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/**
+ *
+ * Creates a horizontally centered container from current `breakpoints` and `containers` contexts.
+ *
+ * @group container
+ *
+ * @example scss
+ *   // SCSS
+ *   @include ar-with-context((
+ *     "breakpoints": (
+ *       "small":  480px,
+ *       "medium": 768px
+ *     ),
+ *     "containers": (
+ *       "default": ( "margin": 20px ),
+ *       "small":   ( "width":  460px ),
+ *       "medium":  ( "width":  95% )
+ *     ))) {
+ *
+ *     .responsive-container {
+ *       @include ar-grid-container;
+ *     }
+ *   }
+ *
+ */
+
+@mixin ar-container-from-context {
+  $containers-ctx: ar-require-context("containers");
+  $breakpoints-ctx: ar-require-context("breakpoints");
+
+  @if map-has-key($containers-ctx, "default") {
+    @include ar-container(map-get($containers-ctx, "default"));
+  }
+
+  @each $breakpoint, $container in $containers-ctx {
+    @if $breakpoint != 'default' {
+      @if map-has-key($breakpoints-ctx, $breakpoint) {
+        @include ar-breakpoint-query($breakpoint) {
+          @include ar-container($container);
+        }
+      } @else {
+        @warn "Unknown breakpoint: [#{$breakpoint}]";
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+%section.page-section
+  .page-section__header
+    %h1.t-h1 Contact
+  = form_for @contact, url: contacts_path, html: { class: 'snazzy-form' } do |f|
+    .snazzy-form__field
+      = f.label :from, "What's your email address?"
+      = f.email_field :from, :required => true, :placeholder => 'you@example.com', :autofocus => true
+    .snazzy-form__field
+      = f.label :message, 'What can I do for you?'
+      = f.text_area :message, :rows => 6, :required => true
+    .snazzy-form__field.snazzy-form__actions
+      = button_tag 'Send', :class => 'button button--primary'

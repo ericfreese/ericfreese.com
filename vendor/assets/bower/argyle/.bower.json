@@ -1,0 +1,30 @@
+{
+  "name": "argyle",
+  "main": "_argyle.scss",
+  "authors": [
+    "Eric Freese <ericdfreese@gmail.com>"
+  ],
+  "description": "A minimally opinionated library of common frontend patterns.",
+  "keywords": [
+    "argyle",
+    "frontend",
+    "patterns",
+    "sass",
+    "js"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ericfreese/argyle",
+  "ignore": [
+    ".gitignore",
+    "docs"
+  ],
+  "_release": "3ae71403c7",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "3ae71403c7ae471b948de9b86ebd19c6910cbbe0"
+  },
+  "_source": "git://github.com/ericfreese/argyle.git",
+  "_target": "master",
+  "_originalSource": "git://github.com/ericfreese/argyle.git"
+}

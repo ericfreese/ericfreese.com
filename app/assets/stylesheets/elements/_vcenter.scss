@@ -1,0 +1,10 @@
+.vcenter {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.vcenter__inner {
+  display: table-cell;
+  vertical-align: middle;
+}

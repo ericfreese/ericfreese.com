@@ -1,0 +1,46 @@
+.article-preview {
+  @include ar-nested-links__container;
+
+  a {
+    @include ar-nested-links__inner;
+  }
+
+  & + & {
+    margin-top: 4rem;
+  }
+}
+
+.article-preview__title {
+  @extend .t-h2;
+
+  a {
+    @include ar-nested-links__outer;
+  }
+}
+
+.article-preview__meta {
+  @extend .article__meta;
+}
+
+.article-preview__body {
+  @extend .t-readable;
+  margin-top: 2rem;
+  word-break: break-word;
+}
+
+.article-preview__view-all {
+  a {
+    @extend .button;
+    @extend .button--small;
+    display: block;
+    margin-top: 4rem;
+  }
+
+  @include ar-breakpoint-query(medium) {
+    text-align:right;
+
+    a {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Argyle",
+  "name": "argyle",
+  "version": "0.0.1",
+  "description": "A minimally opinionated library of common frontend patterns.",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.8.5",
+    "gulp-sassdoc": "^1.0.1"
+  }
+}

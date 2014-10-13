@@ -1,0 +1,9 @@
+.article-preview
+  %h2.article-preview__title
+    = link_to post.title, content_path(post)
+  %p.article-preview__body
+    = preview_content(post)
+  .article-preview__meta
+    .article-preview__created
+      %time{ :datetime => post.created_at }
+        = post.created_at.strftime('%B %-d, %Y')

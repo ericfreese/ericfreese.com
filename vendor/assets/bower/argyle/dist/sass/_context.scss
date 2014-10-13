@@ -1,0 +1,161 @@
+@import "functions/map_merge_deep";
+
+$ar-context: ();
+
+/**
+ * Pushes a context on the stack.
+ *
+ * @access private
+ *
+ * @group context
+ *
+ * @param {Map} $context - Context to push
+ * 
+ * @returns {Map} - New context list
+ */
+@function ar-push-context($context) {
+  @return append($ar-context, $context, comma)
+}
+
+/**
+ * Pops a context off the stack.
+ *
+ * @access private
+ *
+ * @group context
+ *
+ * @returns {Map} - New context list
+ */
+@function ar-pop-context() {
+  $new-ar-context: ();
+  @for $i from 1 to length($ar-context) {
+    $new-ar-context: append($new-ar-context, nth($ar-context, $i), comma);
+  }
+  @return $new-ar-context;
+}
+
+/**
+ *
+ * Retrieve context info.
+ *
+ * @group context
+ *
+ * @example scss
+ *   $grid: $ar-get-context("grid");
+ *   @if $grid {
+ *     // There's a grid context available.
+ *     // Do something with it...
+ *   }
+ *
+ * @param {String} $context-name - Name of context object to retrieve
+ * @param {Any} $not-found (null) - Object to return if context is not found
+ *
+ * @returns {Map | null}
+ *
+ */
+@function ar-get-context($context-name, $not-found: ()) {
+  $found-contexts: ();
+  $merged-context: ();
+
+  @if length($ar-context) > 0 {
+    @each $frame in $ar-context {
+      @if map-has-key($frame, $context-name) {
+        $found-contexts: append($found-contexts, map-get($frame, $context-name));
+      }
+    }
+  }
+
+  @if length($found-contexts) > 0 {
+    @each $context in $found-contexts {
+      $merged-context: ar-map-merge-deep($merged-context, $context);
+    }
+    @return $merged-context;
+  } @else {
+    @return $not-found;
+  }
+}
+
+
+/**
+ *
+ * Retrieve value from context.
+ *
+ * @group context
+ *
+ * @example scss
+ *   $columns: $ar-get-context-value("grid", "columns", 12);
+ *
+ * @example scss
+ *   $grid: $ar-require-context("grid");
+ *   $columns: $ar-get-context-value($grid, "columns", 12);
+ *
+ * @param {String} $ctx - Context object or name of context object to retrieve
+ * @param {String} $key - Key in context object to retrieve value for
+ * @param {Any} $not-found (null) - Object to return if key is not found
+ *
+ * @returns {Map | Any}
+ *
+ */
+@function ar-get-context-value($ctx, $key, $not-found: null) {
+  @if (type_of($ctx) == string) {
+    $ctx: ar-get-context($ctx);
+  }
+
+  @return if(map-has-key($ctx, $key), map-get($ctx, $key), $not-found);
+}
+
+/**
+ *
+ * Same behavior as `ar-get-context`, but throws an error if the context is not available.
+ *
+ * @group context
+ *
+ * @example scss
+ *   $grid: $ar-require-context("grid");
+ *
+ * @param {String} $context-name - Name of context object to retrieve
+ *
+ * @returns {Map}
+ *
+ * @throws Error when context is not available.
+ *
+ */
+@function ar-require-context($context-name) {
+  $value: ar-get-context($context-name, null);
+  @if $value == null {
+    @error "Context not specified: [#{$context-name}]"
+  }
+  @return $value;
+}
+
+/**
+ *
+ * Make specified context(s) available during the duration of the block.
+ *
+ * @group context
+ *
+ * @example scss
+ *   @include ar-with-context((
+ *     "breakpoints": (
+ *       "small":  480px,
+ *       "medium": 768px
+ *     ),
+ *     "containers": (
+ *       "default": ( "margin": 20px ),
+ *       "small":   ( "width":  460px ),
+ *       "medium":  ( "width":  95% )
+ *     ))) {
+ *
+ *     .responsive-container {
+ *       @include ar-grid-container;
+ *     }
+ *   }
+ *
+ * @param {Map} $context - Context(s) to make available
+ *
+ */
+@mixin ar-with-context($context) {
+  $ar-context: ar-push-context($context) !global;
+  @content;
+  $ar-context: ar-pop-context() !global;
+}

@@ -1,0 +1,22 @@
+@import "../context";
+
+@mixin ar-total-height($total-height) {
+  $height: map-get($total-height, "height");
+  $line-height: map-get($total-height, "line-height");
+  $border-height: map-get($total-height, "border-height");
+
+  @if $height == null { @error "Key required: height"; }
+  @if $line-height == null { @error "Key required: line-height"; }
+  @if $border-height == null { @error "Key required: border-height"; }
+
+  $padding-y: ($height - $line-height - $border-height) / 2;
+
+  line-height: $line-height;
+  padding-top: $padding-y;
+  padding-bottom: $padding-y;
+}
+
+@mixin ar-total-height-from-context($ctx-overrides: ()) {
+  $total-height: ar-map-merge-deep(ar-require-context("total-height"), $ctx-overrides);
+  @include ar-total-height($total-height);
+}
