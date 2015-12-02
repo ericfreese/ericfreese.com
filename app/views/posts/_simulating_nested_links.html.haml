@@ -1,0 +1,39 @@
+:markdown
+  It's common knowledge that [you can't nest links in HTML](http://www.w3.org/html/wg/drafts/html/master/single-page.html#the-a-element). However, sometimes you may want or need to simulate the effect.
+
+  Say you have a dashboard page with a list of items that you can **view** (primary action), **edit**, or **delete**. You want the user to be able to **view** an item by clicking anywhere on the item's row. Naively, you might try to write the markup this way:
+
+      <div class="items">
+        <a class="item" href="/items/1">
+          Item 1
+          <a href="/items/1/edit">Edit</a>
+          <a href="/items/1/delete">Delete</a>
+        </a>
+        ...
+      </div>
+
+  But of course that won't work because you can't nest `<a>` tags. A [common solution](http://stackoverflow.com/a/9883176/154703) is to replace the outer `<a>` tag with a `<div>` and a Javascript click handler.
+
+      <div class="items">
+        <div class="item" onclick="window.location.href = '/items/1';">
+          Item 1
+          <a href="/items/1/edit">Edit</a>
+          <a href="/items/1/delete">Delete</a>
+        </a>
+        ...
+      </div>
+
+  But that muddies the semantics of the page, disallows opening links in other windows/tabs, and otherwise screws with accessibility.
+
+  My preferred solution is to:
+
+  - Mark up the items with `<div>`s and all the links with plain old `<a>` tags.
+  - Make the `<div>`s positioned via `position: relative` and give them new stacking contexts with `z-index`.
+  - Give the primary link an absolutely positioned pseudoelement that fills the entire item `<div>`.
+  - Put the secondary links above the primary one with `z-index`.
+
+  It looks something like this:
+
+.embedded
+  <p data-height="268" data-theme-id="0" data-slug-hash="JGPpvR" data-default-tab="result" data-user="ericfreese" class='codepen'>See the Pen <a href='http://codepen.io/ericfreese/pen/JGPpvR/'>Simulating Nested Links</a> by Eric Freese (<a href='http://codepen.io/ericfreese'>@ericfreese</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+  <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
