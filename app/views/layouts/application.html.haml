@@ -34,19 +34,12 @@
     %main
       .container= content_for(:content) || yield
 
-    / - if @hide_footer.blank? && cookies[:contacted].blank?
-    /   %footer.site-footer
-    /     .container
-    /       .site-footer__content.hire-me
-    /         - i = rand(3)
-    /         - case i
-    /           - when 0
-    /             I can build you an awesome front end.
-    /           - when 1
-    /             Like what you see?
-    /           - when 2
-    /             Need someone to clean up your CSS?
-    /         = link_to 'Hire me', new_contact_path(:s => i), :class => 'hire-me__action'
+    - if @hide_footer.blank? && cookies[:contacted].blank?
+      %footer.site-footer
+        .container
+          .site-footer__content.hire-me
+            Need a developer?
+            = link_to 'Hire me', new_contact_path, :class => 'hire-me__action'
 
     - if ENV['GOOGLE_ANALYTICS'].present?
       :javascript

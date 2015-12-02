@@ -80,15 +80,6 @@ $navbar-brand-height:     80px;
 $navbar-background-color: $color-offwhite;
 $navbar-link-color:       $color-dark;
 
-/* Brand Stripe */
-
-$brand-stripe-height: 3px;
-$brand-stripe-colors: (
-  darken($color-blue, 10%), $color-blue, lighten($color-blue, 10%),
-  darken($color-red, 10%), $color-red, lighten($color-red, 10%),
-  darken($color-orange, 10%), $color-orange, lighten($color-orange, 10%)
-);
-
 /* Modal */
 
 $modal-overlay-color:       #333;
