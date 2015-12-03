@@ -11,7 +11,7 @@ $breakpoints: (
 $containers: (
   "default": ( "margin": 20px ),
   "small":   ( "width":  440px ),
-  "medium":  ( "width":  740px ),
+  "medium":  ( "width":  700px ),
   // "large":   ( "width":  970px ),
   // "xlarge":  ( "width":  1170px )
 );
@@ -31,7 +31,7 @@ $ar-context: ar-push-context((
 
 /* Colors */
 
-$color-offwhite:  #f4f4f4;
+$color-offwhite:  #eeeeee;
 $color-dark:      #333333;
 $color-gray:      lighten($color-dark, 35%);
 $color-lightgray: lighten($color-gray, 25%);

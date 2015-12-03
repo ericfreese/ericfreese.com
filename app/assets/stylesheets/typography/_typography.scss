@@ -72,15 +72,17 @@ pre {
   white-space: pre;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 10px;
+  background: $color-offwhite;
 }
 
 code {
   font-family: $font-family-code;
   font-size: 0.9em;
+  background: $color-offwhite;
 
   pre & {
     display: block;
-    margin-left: 2.5rem;
+    padding: 1rem 2rem;
+    background: none;
   }
 }
